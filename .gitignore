@@ -1,0 +1,11 @@
+etc
+Include
+Lib
+Scripts
+share
+.env
+.dockerignore
+Dockerfile
+dockerfile_template.txt
+*.cfg
+*.pyc

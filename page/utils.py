@@ -1,9 +1,18 @@
-from supabase_client.utils import get_client
 import pandas as pd
-import numpy as np
 import streamlit as st
 from statsmodels.tsa.stattools import adfuller, acf
 from datetime import timedelta
+import os
+from supabase import create_client, Client
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def get_client():
+    url: str = os.environ.get("SUPABASE_URL")
+    key: str = os.environ.get("SUPABASE_API_KEY")
+    client: Client = create_client(url, key)
+    return client
 
 @st.cache_data(ttl=timedelta(hours=1))
 def fetch_data():
